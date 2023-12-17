@@ -33,11 +33,13 @@ body{
 .dropdown-select-type {
     position: relative;
     display: inline-block;
+    /* width: 100%; */
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -64,10 +66,10 @@ body{
     background-color: red;
 }
 
-.add-btn{
+/* .add-btn{
     padding: 6px 10px;
     font-size: 20px;
-}
+} */
 
 .details-per-subject{
     display: flex;
@@ -87,7 +89,6 @@ body{
     font-size: 15px;
     border: 1px solid black;
     outline: none;
-
 }
 
 .save-btn{
@@ -110,9 +111,36 @@ body{
     cursor: pointer;
 }
 
-.calc-cgpa-btn{
+.calc-cgpa-btn , .total-marks-btn{
     width: 200px;
     padding: 5px;
     font-size: 13px;
     cursor: pointer;
+}
+
+/* -----------------Style for Hybrid Page------------------------ */
+
+.content-container-hybrid{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+.details-per-subject-hybrid{
+    display: grid;
+    grid-template-columns: 150px 200px 150px 150px;
+    gap: 5px;
+}
+
+.details-per-subject-hybrid label{
+    text-align: right;
+    padding-top: 3px;
+    justify-content: left;
+}
+
+.clicked-save-btn{
+    background-color: rgb(56, 241, 31);
+    color: white;
+    border: 1px solid green;
 }
