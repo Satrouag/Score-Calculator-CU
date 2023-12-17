@@ -17,7 +17,7 @@
     </div>
 
     <div class="dropdown-select-type">
-      <button class="dropbtn">Select
+      <button class="dropbtn">Total Score
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="dropdown-select-type">
-      <button class="dropbtn">Select Subject Type
+      <button class="dropbtn">Practical
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -59,7 +59,7 @@
       </p>
       <div class="details-per-subject-hybrid">
         <label for="fname" class="subject">Attendance: </label>
-        <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 04:-">
+        <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 4:-">
         <input type="number" class="js-input-field-att grade" onkeydown="checkEnter(event, 'att')" name="fname" placeholder="Marks Received">
         <button class="js-save-btn-att save-btn" title="Save" onclick="calculateSum('att');">
           <i class="fa fa-check" aria-hidden="true"></i>
@@ -67,6 +67,9 @@
       </div>
 
       <div>
+        <button class="total-marks-btn" onclick="window.location.reload()">
+          Refresh
+        </button>
         <button class="total-marks-btn" onclick="totalMarks();">
           Calculate Marks
         </button>
@@ -86,6 +89,7 @@
       let results = [];
 
       function calculateSum(type) {
+        document.querySelector(`.js-input-field-${type}`).disabled = true;
         console.log(typeof type);
         const saveButtons = document.querySelector(`.js-save-btn-${type}`);
 
@@ -117,6 +121,10 @@
           calculateSum(type)
         }
       }
+
+      // function refresh(){
+      //   location.relod();
+      // }
 
     </script>
 </body>

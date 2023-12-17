@@ -23,9 +23,11 @@ function renderSubjectList(){
     const html = `
     <div>
     <p>Subject: ${i+1}</p>
+    <div id="small-screen-marks">
     <p>${listCredit[i]}</p>
     <p>${listGrade[i]}</p>
     <p>${listTotal[i]}</p>
+    </div>
     <button onclick= "
     listTotal.splice(${i}, 1);
     listGrade.splice(${i}, 1);
