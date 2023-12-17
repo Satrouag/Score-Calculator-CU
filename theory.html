@@ -39,49 +39,17 @@
 
     <div class="content-container-hybrid">
       <div class="details-per-subject-hybrid">
-        <label for="fname" class="subject">Worksheet: </label>
-        <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 300:-">
-        <input type="number" class="js-input-field-w grade" name="fname" placeholder="Marks Received">
-        <button class="js-save-btn-w save-btn" title="Save" onclick="calculateSum('w');">
-          <i class="fa fa-check" aria-hidden="true"></i>
-        </button><br>
-      </div>
-      <div class="details-per-subject-hybrid">
         <label for="fname" class="subject">MST I & II: </label>
         <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks MST I + II(40):-">
-        <input type="number" class="js-input-field-mst grade" name="fname" placeholder="Marks Received">
+        <input type="number" class="js-input-field-mst grade" onkeydown="checkEnter(event, 'mst')" name="fname" placeholder="Marks Received">
         <button class="js-save-btn-mst save-btn" title="Save" onclick="calculateSum('mst');">
-          <i class="fa fa-check" aria-hidden="true"></i>
-        </button><br>
-      </div>
-      <!-- <div class="details-per-subject-hybrid">
-          <label for="fname" class="subject">MST II: </label>
-          <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 20:-">
-          <input type="number" class="js-input-field-m2 grade" name="fname" placeholder="Marks Received">
-          <button class="js-save-btn-m2 save-btn" title="Save" onclick="calculateSum('m2');">
-            <i class="fa fa-check" aria-hidden="true"></i>
-          </button><br>
-        </div> -->
-      <div class="details-per-subject-hybrid">
-        <label for="fname" class="subject">Lab MST: </label>
-        <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 10:-">
-        <input type="number" class="js-input-field-lm grade" name="fname" placeholder="Marks Received">
-        <button class="js-save-btn-lm save-btn" title="Save" onclick="calculateSum('lm');">
-          <i class="fa fa-check" aria-hidden="true"></i>
-        </button><br>
-      </div>
-      <div class="details-per-subject-hybrid">
-        <label for="fname" class="subject">Final Practical: </label>
-        <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 40:-">
-        <input type="number" class="js-input-field-fp grade" name="fname" placeholder="Marks Received">
-        <button class="js-save-btn-fp save-btn" title="Save" onclick="calculateSum('fp');">
           <i class="fa fa-check" aria-hidden="true"></i>
         </button><br>
       </div>
       <div class="details-per-subject-hybrid">
         <label for="fname" class="subject">Assignment: </label>
         <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 10:-">
-        <input type="number" class="js-input-field-asg grade" name="fname" placeholder="Marks Received">
+        <input type="number" class="js-input-field-asg grade" onkeydown="checkEnter(event, 'asg')" name="fname" placeholder="Marks Received">
         <button class="js-save-btn-asg save-btn" title="Save" onclick="calculateSum('asg');">
           <i class="fa fa-check" aria-hidden="true"></i>
         </button><br>
@@ -89,7 +57,7 @@
       <div class="details-per-subject-hybrid">
         <label for="fname" class="subject">Surprise Test: </label>
         <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 12:-">
-        <input type="number" class="js-input-field-st grade" name="fname" placeholder="Marks Received">
+        <input type="number" class="js-input-field-st grade" onkeydown="checkEnter(event, 'st')" name="fname" placeholder="Marks Received">
         <button class="js-save-btn-st save-btn" title="Save" onclick="calculateSum('st');">
           <i class="fa fa-check" aria-hidden="true"></i>
         </button><br>
@@ -97,7 +65,7 @@
       <div class="details-per-subject-hybrid">
         <label for="fname" class="subject">Quiz: </label>
         <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 04:-">
-        <input type="number" class="js-input-field-q grade" name="fname" placeholder="Marks Received">
+        <input type="number" class="js-input-field-q grade" onkeydown="checkEnter(event, 'q')" name="fname" placeholder="Marks Received">
         <button class="js-save-btn-q save-btn" title="Save" onclick="calculateSum('q');">
           <i class="fa fa-check" aria-hidden="true"></i>
         </button><br>
@@ -105,7 +73,7 @@
       <div class="details-per-subject-hybrid">
         <label for="fname" class="subject">Attendance: </label>
         <input type="text" class="js-disabled-input credit" name="fname" placeholder="Enter marks out of 02:-">
-        <input type="number" class="js-input-field-att grade" name="fname" placeholder="Marks Received">
+        <input type="number" class="js-input-field-att grade" onkeydown="checkEnter(event, 'att')" name="fname" placeholder="Marks Received">
         <button class="js-save-btn-att save-btn" title="Save" onclick="calculateSum('att');">
           <i class="fa fa-check" aria-hidden="true"></i>
         </button><br>
@@ -123,14 +91,11 @@
       });
 
       const maxMarks = {
-        'w': 15,
         'att': 1,
-        'fp': 2,
         'q': 1,
         'st': 3,
-        'lm': 2.5,
-        'asg': 1.66,
-        'mst': 4
+        'asg': 1,
+        'mst': 2
       }
 
       let results = [];
@@ -156,8 +121,14 @@
         results.forEach(result => {
           total += result;
         });
+        
+        alert(`Your Total Marks out of 40 = ${total}`);
+      }
 
-        alert(`Your Total Marks out of 70 = ${total}`);
+      function checkEnter(event, type){
+        if(event.key === "Enter"){
+          calculateSum(type)
+        }
       }
 
     </script>

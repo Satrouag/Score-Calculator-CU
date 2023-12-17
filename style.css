@@ -144,3 +144,7 @@ body{
     color: white;
     border: 1px solid green;
 }
+
+.note{
+    padding-bottom: 5px;
+}
